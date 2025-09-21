@@ -58,7 +58,10 @@ bool loadLanguagesData(map<string, string> &languageCodeNames, LanguageProfiles 
 
         language.languageCode = languageCode;
 
-        for (auto &fields : languageCSVData)
+        // Temporary map to accumulate frequencies for lowercase trigrams
+        unordered_map<string, float> tempTrigramProfile;
+
+        for (auto& fields : languageCSVData)
         {
             if (fields.size() != 2)
                 continue;
@@ -66,7 +69,19 @@ bool loadLanguagesData(map<string, string> &languageCodeNames, LanguageProfiles 
             string trigram = fields[0];
             float frequency = (float)stoi(fields[1]);
 
-            language.trigramProfile[trigram] = frequency;
+            // Convert trigram to lowercase
+            string lowercaseTrigram;
+            for (char c : trigram) {
+                lowercaseTrigram += std::tolower(c);
+            }
+
+            // Add frequency to existing entry or create new one
+            tempTrigramProfile[lowercaseTrigram] += frequency;
+        }
+
+        // Copy from temporary map to final trigram profile
+        for (const auto& entry : tempTrigramProfile) {
+            language.trigramProfile[entry.first] = entry.second;
         }
 
         normalizeTrigramProfile(language.trigramProfile);

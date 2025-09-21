@@ -89,22 +89,41 @@ WE HAD EVERYTHING BEFORE US, WE HAD NOTHING BEFORE US,
 WE WERE ALL GOING DIRECT TO HEAVEN, WE WERE ALL GOING DIRECT THE OTHER WAY
 – IN SHORT, THE PERIOD WAS SO FAR LIKE THE PRESENT PERIOD, THAT SOME OF ITS NOISIEST AUTHORITIES INSISTED ON ITS BEING RECEIVED, FOR GOOD OR FOR EVIL, IN THE SUPERLATIVE DEGREE OF COMPARISON ONLY.
 
-El programa detecta idioma Afrikaans en vez de inglés. Esto puede deberse principalmente
+El programa inicialmente detecta idioma Afrikaans en vez de inglés. Esto puede deberse principalmente
 a que el texto está en mayúsculas, lo que afecta la frecuencia de aparición de ciertos trigramas 
 y puede hacer que el perfil del texto se asemeje más al del Afrikaans.
 
+Luego de los cambios realizados en relación a las mayúsculas y minúsculas, el programa detecta correctamente
+el idioma inglés.
+
 ## Bonus points
 
-Unordered map en vez de map para mejor rendimiento en las búsquedas.
+Mejoras de rendimiento y precisión:
 
-Limita la cantidad de trigramas por perfil para limitar el consumo de recursos en textos grandes.
+- Se utilizó la librería "unordered_map" en lugar de "map" para almacenar los perfiles de trigramas.
+  Esto mejora el rendimiento de las búsquedas, ya que "unordered_map" tiene una complejidad promedio
+  de O(1) para búsquedas, mientras que "map" tiene una complejidad de O(log n).
 
-Usamos find para encontrar cada trigrama del texto en el perfil de idioma en vez de recorrer
-todo el perfil buscando coincidencias. 
+- Se limitó la cantidad de trigramas por perfil a 10000 para evitar un consumo excesivo de memoria
+  y mejorar la velocidad de comparación. A partir de esta cifra, los perfiles de trigramas no suelen
+  variar significativamente, por lo que no afecta la precisión de la detección de idioma.
 
-Entonces pasamos de O(n*m) a O(n) siendo n la cantidad de trigramas en el 
-texto y m la cantidad de trigramas en el perfil
+- Se optimizó la función "getCosineSimilarity" para que busque cada trigrama con "find" en lugar de 
+  recorrer todo el perfil del trigrama de cada idioma buscando coincidencias. Si no encuentra el 
+  trigrama, continúa con el siguiente trigrama del texto automáticamente. La complejidad computacional 
+  de la función "getCosineSimilarity" pasó de ser O(n*m) a O(n), donde n es la cantidad de trigramas 
+  en el texto y m es la cantidad de trigramas en el perfil del idioma.
 
-Cambiamos todos los trigramas a minúsculas para evitar errores de detección por mayúsculas.
+- Se cambiaron todos los trigramas a minúsculas para evitar errores de detección por mayúsculas. Esto
+  mejora la precisión de la detección de idioma, ya que los trigramas en mayúsculas pueden no coincidir
+  con los perfiles de trigramas en minúsculas. Sin embargo, esto implicó cambiar los perfiles de 
+  trigramas de todos los idiomas a minúsculas también. Este cambio se realiza en la función "main" cada vez
+  que se ejecuta el programa.
 
-[completar]
+ 
+Conclusión de mejoras de rendimiento:
+
+Estos cambios mejoraron significativamente el rendimiento del programa, reduciendo drasticamente el 
+tiempo de detección de idiomas, especialmente en textos largos. Al probar con textos largos, el tiempo
+de detección se redujo de varios segundos a menos de un segundo en la mayoría de los casos. 
+
