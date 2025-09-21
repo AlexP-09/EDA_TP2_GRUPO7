@@ -11,13 +11,15 @@
 #define LEQUEL_H
 
 #include <list>
-#include <map>
+//#include <map>
 #include <string>
-
+#include <unordered_map>
 #include "Text.h"
 
 // TrigramProfile: map of trigram -> frequency
-typedef std::map<std::string, float> TrigramProfile;
+// typedef std::map<std::string, float> TrigramProfile;
+// Using unordered_map for better performance
+typedef std::unordered_map<std::string, float> TrigramProfile;
 
 // TrigramList: list of trigrams
 typedef std::list<std::string> TrigramList;

@@ -26,6 +26,9 @@ TrigramProfile buildTrigramProfile(const Text &text)
 {
     TrigramProfile trigramProfile;
     wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+	const int MAX_TRIGRAMS = 10000;
+	int trigramCount = 0;
+	bool reachedMaxTrigrams = false;
 
     for (auto line : text)
     {
@@ -35,17 +38,31 @@ TrigramProfile buildTrigramProfile(const Text &text)
 
         if (line.length() < 3)
             continue;
+
         wstring unicodeString = converter.from_bytes(line);
-        for (int i = 0; i <= unicodeString.length()-3; i++)
+
+		// Converts to lowercase
+        wstring lowercaseString;
+        for (wchar_t c : unicodeString) 
         {
-            wstring unicodeTrigram = unicodeString.substr(i, 3);
+            lowercaseString += std::tolower(c);
+        }
+
+        for (int i = 0; i <= lowercaseString.length()-3 && !reachedMaxTrigrams; i++)
+        {
+            wstring unicodeTrigram = lowercaseString.substr(i, 3);
             string trigram = converter.to_bytes(unicodeTrigram);
 
             trigramProfile[trigram] += 1.0f;
             //cout << trigram << endl;
-
+            
+			// Limit the number of trigrams to avoid excessive memory usage
+			if (++trigramCount >= MAX_TRIGRAMS)
+				reachedMaxTrigrams = true;
         }
 
+        if (reachedMaxTrigrams)
+            break;
     }
   
     return trigramProfile;
@@ -87,16 +104,22 @@ void normalizeTrigramProfile(TrigramProfile &trigramProfile)
 float getCosineSimilarity(TrigramProfile &textProfile, TrigramProfile &languageProfile)
 {
     float sum = 0.0f;
-    for (const auto& textElement : textProfile)
-    {
-        for (const auto& languageElement : languageProfile)
-        {
-            if (textElement.first == languageElement.first)
-            {
-                sum += textElement.second * languageElement.second;
-            }
+ 
+    for (const auto& textElement : textProfile) {
+
+        string trigram = textElement.first;
+        float text_frequency = textElement.second;
+
+		// Looks for the trigram in the language profile
+        auto found_trigram = languageProfile.find(trigram);
+
+		// If found, multiply the frequencies and add to the sum
+        if (found_trigram != languageProfile.end()) {
+            float language_frequency = found_trigram->second;  // ej: 0.4
+            sum += text_frequency * language_frequency;   // 0.5 * 0.4
         }
     }
+
     return sum;
 }
 

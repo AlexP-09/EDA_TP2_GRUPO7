@@ -39,7 +39,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/dev/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug"
+			"value" : "c:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -483,7 +483,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/dev/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -543,7 +543,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/dev/EDA_TP2_GRUPO7/2. Lequel - Starter Code"
+			"value" : "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -555,7 +555,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/dev/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/install/x64-Debug"
+			"value" : "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/install/x64-Debug"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -1707,7 +1707,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/dev/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug"
+			"value" : "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug"
 		},
 		{
 			"name" : "main_IS_TOP_LEVEL",
@@ -1731,7 +1731,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/dev/EDA_TP2_GRUPO7/2. Lequel - Starter Code"
+			"value" : "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code"
 		},
 		{
 			"name" : "raylib_DIR",

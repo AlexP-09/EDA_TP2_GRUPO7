@@ -1,3 +1,3 @@
-C:/dev/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/main.dir
-C:/dev/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/dev/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/main.dir
+C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
