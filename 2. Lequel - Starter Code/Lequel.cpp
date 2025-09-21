@@ -11,10 +11,13 @@
 #include <codecvt>
 #include <locale>
 #include <iostream>
+#include <string>
+#include <unordered_map>
+#include <map>
 
+#include "raylib.h"
+#include "CSVdata.h"
 #include "Lequel.h"
-
-using namespace std;
 
 /**
  * @brief Builds a trigram profile from a given text.
@@ -150,3 +153,142 @@ string identifyLanguage(const Text &text, LanguageProfiles &languages)
 
     return bestLanguage; 
 }   
+
+/**
+ * @brief Adds a custom language to the system
+ *
+ * @param languageCodeNames Reference to the language code names map
+ * @param languages Reference to the language profiles
+ * @return 1 if language was added successfully
+ * @return -1 if there was an error
+ */
+int addCustomLanguage(map<string, string>& languageCodeNames, LanguageProfiles& languages)
+{
+    // Get the dropped file path
+    FilePathList droppedFiles = LoadDroppedFiles();
+    if (droppedFiles.count != 1)
+    {
+        UnloadDroppedFiles(droppedFiles);
+        return -1;
+    }
+
+    const char* filePath = droppedFiles.paths[0];
+
+    // Extract filename without extension as language name
+    string fileName = string(filePath);
+    size_t lastSlash = fileName.find_last_of("/\\");
+    if (lastSlash != string::npos)
+        fileName = fileName.substr(lastSlash + 1);
+
+    size_t lastDot = fileName.find_last_of(".");
+    if (lastDot != string::npos)
+        fileName = fileName.substr(0, lastDot);
+
+    string languageName = fileName;
+
+    // Generate a 3-character language code from the name
+    string languageCode;
+    if (languageName.length() >= 3)
+    {
+        languageCode = languageName.substr(0, 3);
+        for (char& c : languageCode)
+            c = tolower(c);
+    }
+    else
+    {
+        UnloadDroppedFiles(droppedFiles);
+        return -1;
+    }
+
+    // Check if language code or name already exists
+    if (languageCodeNames.find(languageCode) != languageCodeNames.end())
+    {
+        UnloadDroppedFiles(droppedFiles);
+        return -1;
+    }
+
+    for (const auto& entry : languageCodeNames)
+    {
+        if (entry.second == languageName)
+        {
+            UnloadDroppedFiles(droppedFiles);
+            return -1;
+        }
+    }
+
+    Text text;
+    if (!getTextFromFile(filePath, text))
+    {
+        UnloadDroppedFiles(droppedFiles);
+        return -1;
+    }
+
+    TrigramProfile trigramProfile = buildTrigramProfile(text);
+
+    if (trigramProfile.empty())
+    {
+        UnloadDroppedFiles(droppedFiles);
+        return -1;
+    }
+
+    CSVData trigramCSVData;
+
+    for (const auto& entry : trigramProfile)
+    {
+        vector<string> row;
+        row.push_back(entry.first);
+        row.push_back(to_string((int)entry.second));
+        trigramCSVData.push_back(row);
+    }
+
+    // Save trigram profile to CSV file
+    string trigramFilePath = TRIGRAMS_PATH + languageCode + ".csv";
+    if (!writeCSV(trigramFilePath, trigramCSVData))
+    {
+        UnloadDroppedFiles(droppedFiles);
+        return -1;
+    }
+
+    // Read existing language codes file
+    CSVData existingLanguages;
+    if (!readCSV(LANGUAGECODE_NAMES_FILE, existingLanguages))
+    {
+        UnloadDroppedFiles(droppedFiles);
+        return -1;
+    }
+
+    existingLanguages.push_back({ languageCode, languageName });
+
+    // Save updated language codes file
+    if (!writeCSV(LANGUAGECODE_NAMES_FILE, existingLanguages))
+    {
+        UnloadDroppedFiles(droppedFiles);
+        return -1;
+    }
+
+    languageCodeNames[languageCode] = languageName;
+
+    // Create new language profile and add to languages list
+    languages.push_back(LanguageProfile());
+    LanguageProfile& newLanguage = languages.back();
+    newLanguage.languageCode = languageCode;
+
+    // Convert trigrams to lowercase and normalize
+    unordered_map<string, float> tempTrigramProfile;
+    for (const auto& entry : trigramProfile)
+    {
+        string lowercaseTrigram;
+        for (char c : entry.first)
+            lowercaseTrigram += tolower(c);
+
+        tempTrigramProfile[lowercaseTrigram] += entry.second;
+    }
+
+    for (const auto& entry : tempTrigramProfile)
+        newLanguage.trigramProfile[entry.first] = entry.second;
+
+    normalizeTrigramProfile(newLanguage.trigramProfile);
+
+    UnloadDroppedFiles(droppedFiles);
+    return 1;
+}

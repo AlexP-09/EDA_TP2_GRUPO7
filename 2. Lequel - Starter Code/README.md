@@ -117,8 +117,8 @@ Mejoras de rendimiento y precisión:
 - Se cambiaron todos los trigramas a minúsculas para evitar errores de detección por mayúsculas. Esto
   mejora la precisión de la detección de idioma, ya que los trigramas en mayúsculas pueden no coincidir
   con los perfiles de trigramas en minúsculas. Sin embargo, esto implicó cambiar los perfiles de 
-  trigramas de todos los idiomas a minúsculas también. Este cambio se realiza en la función "main" cada vez
-  que se ejecuta el programa.
+  trigramas de todos los idiomas a minúsculas también. Este cambio se realiza en la función "loadLanguagesData" 
+  cada vez que se ejecuta el programa, sumando las frecuencias de los trigramas en minúsculas y mayúsculas.
 
  
 Conclusión de mejoras de rendimiento:
@@ -127,3 +127,15 @@ Estos cambios mejoraron significativamente el rendimiento del programa, reducien
 tiempo de detección de idiomas, especialmente en textos largos. Al probar con textos largos, el tiempo
 de detección se redujo de varios segundos a menos de un segundo en la mayoría de los casos. 
 
+Funciones extra
+
+- Se pueden agregar idiomas con un archivo de texto con el nombre del idioma. El programa toma el nombre del 
+  archivo como el nombre del idioma y genera el perfil de trigramas automáticamente, tomando el primer trigrama
+  como el tag del idioma para el archivo CSV. Esto se realiza con la función "addCustomLanguage".
+
+Observaciones adicionales:
+
+- Al agregarle C++ como lenguaje a la base de datos de trigramas con un código largo, el programa logra 
+  detectar correctamente fragmentos de código en C++. Sin embargo, puede confundir el idioma inglés con C++
+  debido a la similitud en la sintaxis del lenguaje de programación. Por ejemplo, el texto número 12 que antes
+  detectaba correctamente como inglés, ahora lo detecta como C++, por lo que retiramos el idioma C++ de los datos.

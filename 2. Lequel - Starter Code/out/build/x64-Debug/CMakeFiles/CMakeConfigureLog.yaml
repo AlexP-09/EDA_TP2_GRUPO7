@@ -109,8 +109,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-qe3sdy"
-      binary: "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-qe3sdy"
+      source: "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-5kzyts"
+      binary: "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-5kzyts"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       VCPKG_INSTALLED_DIR: "C:/dev/vcpkg/installed"
@@ -121,11 +121,11 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-qe3sdy'
+        Change Dir: 'C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-5kzyts'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_a0c28
-        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_a0c28.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_a0c28.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=CMakeFiles\\cmTC_a0c28.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_a0c28.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_a0c28.exe /implib:cmTC_a0c28.lib /pdb:cmTC_a0c28.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_9f2a0
+        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_9f2a0.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_9f2a0.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=CMakeFiles\\cmTC_9f2a0.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_9f2a0.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_9f2a0.exe /implib:cmTC_9f2a0.lib /pdb:cmTC_9f2a0.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -165,8 +165,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-cy30ri"
-      binary: "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-cy30ri"
+      source: "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-qpt0d5"
+      binary: "C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-qpt0d5"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
@@ -178,11 +178,11 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-cy30ri'
+        Change Dir: 'C:/Users/peter/Desktop/ITBA/Materias/Estructuras de datos y algoritmos/edatp2/EDA_TP2_GRUPO7/2. Lequel - Starter Code/out/build/x64-Debug/CMakeFiles/CMakeScratch/TryCompile-qpt0d5'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_74399
-        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_74399.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_74399.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=CMakeFiles\\cmTC_74399.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_74399.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_74399.exe /implib:cmTC_74399.lib /pdb:cmTC_74399.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_036e6
+        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_036e6.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_036e6.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=CMakeFiles\\cmTC_036e6.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_036e6.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_036e6.exe /implib:cmTC_036e6.lib /pdb:cmTC_036e6.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -

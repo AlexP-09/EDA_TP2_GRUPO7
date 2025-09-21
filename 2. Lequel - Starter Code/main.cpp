@@ -16,9 +16,6 @@
 
 using namespace std;
 
-const string LANGUAGECODE_NAMES_FILE = "resources/languagecode_names_es.csv";
-const string TRIGRAMS_PATH = "resources/trigrams/";
-
 /**
  * @brief Loads trigram data.
  * 
@@ -104,6 +101,9 @@ int main(int, char *[])
     int screenWidth = 800;
     int screenHeight = 450;
 
+	bool addLanguage = false;
+	int addedLanguage = 0;
+
     InitWindow(screenWidth, screenHeight, "Lequel?");
 
     SetTargetFPS(60);
@@ -114,11 +114,11 @@ int main(int, char *[])
     {
         if (IsKeyPressed(KEY_V) &&
             (IsKeyDown(KEY_LEFT_CONTROL) ||
-             IsKeyDown(KEY_RIGHT_CONTROL) ||
-             IsKeyDown(KEY_LEFT_SUPER) ||
-             IsKeyDown(KEY_RIGHT_SUPER)))
+                IsKeyDown(KEY_RIGHT_CONTROL) ||
+                IsKeyDown(KEY_LEFT_SUPER) ||
+                IsKeyDown(KEY_RIGHT_SUPER)))
         {
-            const char *clipboard = GetClipboardText();
+            const char* clipboard = GetClipboardText();
 
             Text text;
             getTextFromString(clipboard, text);
@@ -132,13 +132,26 @@ int main(int, char *[])
 
             if (droppedFiles.count == 1)
             {
-                Text text;
-                getTextFromFile(droppedFiles.paths[0], text);
+                if (addLanguage)
+                    addedLanguage = addCustomLanguage(languageCodeNames, languages);
+                else
+                {
+                    Text text;
+                    const char* path = droppedFiles.paths[0];
+                    getTextFromFile(path, text);
 
-                languageCode = identifyLanguage(text, languages);
+                    languageCode = identifyLanguage(text, languages);
 
-                UnloadDroppedFiles(droppedFiles);
+                    UnloadDroppedFiles(droppedFiles);
+                }
             }
+        }
+
+        if (IsKeyPressed(KEY_A))
+        {
+            addLanguage = !addLanguage;
+			languageCode = "---";
+			addedLanguage = 0;
         }
 
         BeginDrawing();
@@ -146,7 +159,22 @@ int main(int, char *[])
         ClearBackground(BEIGE);
 
         DrawText("Lequel?", 80, 80, 128, BROWN);
-        DrawText("Copia y pega con Ctrl+V, o arrastra un archivo...", 80, 220, 24, BROWN);
+        if (!addLanguage)
+        {
+            DrawText("Copia y pega con Ctrl+V, o arrastra un archivo...", 80, 220, 24, BROWN);
+            DrawText("Presiona A para agregar un lenguage personalizado: ", 80, 260, 24, BROWN);
+        }
+        else
+        {
+            DrawText("Arrastra un archivo de texto para agregar un lenguage", 80, 220, 24, BROWN);
+			DrawText("El archivo debe tener el nombre del idioma", 80, 260, 24, BROWN);
+            DrawText("Presiona A para volver a identificacion de lenguages: ", 80, 300, 24, BROWN);
+			if (addedLanguage > 0)
+				DrawText("El lenguaje fue agregado correctamente.", 80, 340, 24, DARKGREEN);
+			else if (addedLanguage < 0)
+				DrawText("No se pudo agregar el lenguaje.", 80, 340, 24, RED);
+
+		}
 
         string languageString;
         if (languageCode != "---")
@@ -167,3 +195,5 @@ int main(int, char *[])
 
     return 0;
 }
+
+
