@@ -129,9 +129,15 @@ de detección se redujo de varios segundos a menos de un segundo en la mayoría 
 
 Funciones extra
 
-- Se pueden agregar idiomas con un archivo de texto con el nombre del idioma. El programa toma el nombre del 
-  archivo como el nombre del idioma y genera el perfil de trigramas automáticamente, tomando el primer trigrama
-  como el tag del idioma para el archivo CSV. Esto se realiza con la función "addCustomLanguage".
+- Se pueden agregar idiomas con un archivo de texto con el nombre del idioma.
+  Al iniciar el programa, si se presiona la tecla A, se cambia a modo AGREGAR IDIOMA, donde se espera que el
+  usuario arrastre un arhivo de texto con mucho texto relevante del idioma que se quiere agregar. Se pueden
+  agregar la cantidad de idiomas que se quiera, y luego para volver al modo de DETECCION de IDIOMA, se presiona
+  nuevamente la tecla A. Se puede ir alternando por estos modos.
+  El programa toma el nombre del archivo como el nombre del idioma y genera el perfil de trigramas automáticamente, 
+  tomando el primer trigrama como el tag del idioma para el archivo CSV. Esto se realiza con la función "addCustomLanguage".
+  Si se detecta un archivo con el nombre español por ejemplo, no se podra crear este idioma porque ya existe, es decir,
+  se chequea en la base de datos los idiomas ya existentes para no sobreescribir.
 
 Observaciones adicionales:
 
@@ -139,3 +145,5 @@ Observaciones adicionales:
   detectar correctamente fragmentos de código en C++. Sin embargo, puede confundir el idioma inglés con C++
   debido a la similitud en la sintaxis del lenguaje de programación. Por ejemplo, el texto número 12 que antes
   detectaba correctamente como inglés, ahora lo detecta como C++, por lo que retiramos el idioma C++ de los datos.
+- Cabe aclarar que se puede agregar el lenguaje que se quiera(mientras no exista), y se disponga de un archivo de
+  texto con mucha información relevante.
